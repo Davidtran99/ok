@@ -1,52 +1,78 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tạo Quiz Tùy chỉnh</title>
+  <title>Interactive Fill in the Blanks Quiz</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
-  <h1>Tạo Quiz Tùy chỉnh</h1>
+  <h1>Interactive Fill in the Blanks Quiz</h1>
 
   <div id="quizCreator">
-    <h2>Nhập Thông tin Quiz</h2>
-    <input type="text" id="topicInput" placeholder="Nhập chủ đề">
-    <textarea id="contextInput" placeholder="Nhập context cho câu hỏi"></textarea>
-    <textarea id="questionInput" placeholder="Nhập câu hỏi"></textarea>
-    <div id="optionsContainer">
-      <input type="text" class="optionInput" placeholder="Đáp án 1">
-      <input type="text" class="optionInput" placeholder="Đáp án 2">
+    <h2>Create Your Quiz</h2>
+    <div class="instructions">
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Enter your questions and answers in the textarea below.</li>
+        <li>Use single square brackets [] for blanks that need to be filled.</li>
+        <li>Start each question with "Câu hỏi:".</li>
+        <li>Example:</li>
+      </ol>
+      <pre class="example-code">
+Câu hỏi: Tại sao "String" trong Java lại được thiết kế là "bất biến"?
+[Đảm bảo an toàn] 🛡️ khi sử dụng chuỗi. [Tối ưu hóa bộ nhớ] 🧠
+thông qua String pool. [Hỗ trợ đa luồng] 🧵 mà không cần
+đồng bộ hóa. [Cải thiện hiệu suất] 🚀 khi sử dụng làm khóa
+trong HashMap.
+                </pre>
     </div>
-    <button id="addOptionBtn">Thêm đáp án</button>
-    <div id="correctAnswersContainer">
-      <p>Chọn đáp án đúng:</p>
+    <textarea id="quizInput" rows="10" placeholder="Enter your quiz questions and answers here..."></textarea>
+    <div class="button-group">
+      <button id="createQuizBtn" class="primary-btn">Create Quiz</button>
+      <button id="saveQuizBtn" class="secondary-btn">Save Quiz</button>
     </div>
-    <button id="addQuestionBtn">Thêm câu hỏi</button>
-    <button id="startQuizBtn">Bắt đầu Quiz</button>
+    <div id="questionList"></div>
+    <div id="savedQuizzes">
+      <h3>Saved Quizzes:</h3>
+      <div id="savedQuizzesList"></div>
+    </div>
   </div>
 
   <div id="quizContainer" class="hidden">
-    <div id="contextDisplay">
-      <h2>Context</h2>
-      <p id="contextText"></p>
-      <p id="contextTimer"></p>
+    <div id="progressBar">
+      <div id="progressFill"></div>
     </div>
-    <div id="questionDisplay" class="hidden">
-      <h2>Câu hỏi</h2>
-      <p id="questionText"></p>
-      <div id="optionsDisplay"></div>
-      <p id="questionTimer"></p>
+    <div id="quizPhase">
+      <h2>Fill in the Blanks</h2>
+      <div id="questionText"></div>
+      <div id="quizText"></div>
+      <div id="optionsContainer"></div>
+      <button id="submitAnswerBtn" class="primary-btn">Submit Answer</button>
     </div>
-    <div id="resultDisplay" class="hidden">
-      <h2>Kết quả</h2>
-      <p id="score"></p>
+  </div>
+
+  <div id="finalResult" class="hidden">
+    <h2>Quiz Results</h2>
+    <div id="scoreDisplay"></div>
+    <div id="quizSummary"></div>
+    <div class="button-group">
+      <button id="restartQuizBtn" class="primary-btn">Restart Quiz</button>
+      <button id="retryIncorrectBtn" class="secondary-btn">Retry Incorrect Questions</button>
     </div>
-    <button id="nextBtn" class="hidden">Câu tiếp theo</button>
   </div>
 </div>
+
+<div id="notificationContainer"></div>
+<div id="motivationContainer"></div>
+
+<!-- Add audio elements -->
+<audio id="correctSound" src="/Users/davidtran/Desktop/MXHjavaspring/Lesson/hocnhanh/correct.mp3"></audio>
+<audio id="errorSound" src="/Users/davidtran/Desktop/MXHjavaspring/Lesson/hocnhanh/error.mp3"></audio>
+<audio id="mouseSound" src="/Users/davidtran/Desktop/MXHjavaspring/Lesson/hocnhanh/mouse.mp3"></audio>
+
 <script src="script.js"></script>
 </body>
 </html>
