@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo Quiz Tùy chỉnh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Tạo Quiz Tùy chỉnh</h1>
+
+  <div id="quizCreator">
+    <h2>Nhập Thông tin Quiz</h2>
+    <input type="text" id="topicInput" placeholder="Nhập chủ đề">
+    <textarea id="contextInput" placeholder="Nhập context cho câu hỏi"></textarea>
+    <textarea id="questionInput" placeholder="Nhập câu hỏi"></textarea>
+    <div id="optionsContainer">
+      <input type="text" class="optionInput" placeholder="Đáp án 1">
+      <input type="text" class="optionInput" placeholder="Đáp án 2">
+    </div>
+    <button id="addOptionBtn">Thêm đáp án</button>
+    <div id="correctAnswersContainer">
+      <p>Chọn đáp án đúng:</p>
+    </div>
+    <button id="addQuestionBtn">Thêm câu hỏi</button>
+    <button id="startQuizBtn">Bắt đầu Quiz</button>
+  </div>
+
+  <div id="quizContainer" class="hidden">
+    <div id="contextDisplay">
+      <h2>Context</h2>
+      <p id="contextText"></p>
+      <p id="contextTimer"></p>
+    </div>
+    <div id="questionDisplay" class="hidden">
+      <h2>Câu hỏi</h2>
+      <p id="questionText"></p>
+      <div id="optionsDisplay"></div>
+      <p id="questionTimer"></p>
+    </div>
+    <div id="resultDisplay" class="hidden">
+      <h2>Kết quả</h2>
+      <p id="score"></p>
+    </div>
+    <button id="nextBtn" class="hidden">Câu tiếp theo</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
