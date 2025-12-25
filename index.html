@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Fill in the Blanks Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Interactive Fill in the Blanks Quiz</h1>
+
+  <div id="quizCreator">
+    <h2>Create Your Quiz</h2>
+    <div class="instructions">
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Enter your questions and answers in the textarea below.</li>
+        <li>Use single square brackets [] for blanks that need to be filled.</li>
+        <li>Start each question with "Câu hỏi:".</li>
+        <li>Example:</li>
+      </ol>
+      <pre class="example-code">
+Câu hỏi: Tại sao "String" trong Java lại được thiết kế là "bất biến"?
+[Đảm bảo an toàn] 🛡️ khi sử dụng chuỗi. [Tối ưu hóa bộ nhớ] 🧠
+thông qua String pool. [Hỗ trợ đa luồng] 🧵 mà không cần
+đồng bộ hóa. [Cải thiện hiệu suất] 🚀 khi sử dụng làm khóa
+trong HashMap.
+                </pre>
+    </div>
+    <textarea id="quizInput" rows="10" placeholder="Enter your quiz questions and answers here..."></textarea>
+    <div class="button-group">
+      <button id="createQuizBtn" class="primary-btn">Create Quiz</button>
+      <button id="saveQuizBtn" class="secondary-btn">Save Quiz</button>
+    </div>
+    <div id="questionList"></div>
+    <div id="savedQuizzes">
+      <h3>Saved Quizzes:</h3>
+      <div id="savedQuizzesList"></div>
+    </div>
+  </div>
+
+  <div id="quizContainer" class="hidden">
+    <div id="progressBar">
+      <div id="progressFill"></div>
+    </div>
+    <div id="quizPhase">
+      <h2>Fill in the Blanks</h2>
+      <div id="questionText"></div>
+      <div id="quizText"></div>
+      <div id="optionsContainer"></div>
+      <button id="submitAnswerBtn" class="primary-btn">Submit Answer</button>
+    </div>
+  </div>
+
+  <div id="finalResult" class="hidden">
+    <h2>Quiz Results</h2>
+    <div id="scoreDisplay"></div>
+    <div id="quizSummary"></div>
+    <div class="button-group">
+      <button id="restartQuizBtn" class="primary-btn">Restart Quiz</button>
+      <button id="retryIncorrectBtn" class="secondary-btn">Retry Incorrect Questions</button>
+    </div>
+  </div>
+</div>
+
+<div id="notificationContainer"></div>
+<div id="motivationContainer"></div>
+
+<!-- Add audio elements -->
+<audio id="correctSound" src="assets/correct.mp3"></audio>
+<audio id="errorSound" src="assets/error.mp3"></audio>
+<audio id="mouseSound" src="assets/mouse.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
